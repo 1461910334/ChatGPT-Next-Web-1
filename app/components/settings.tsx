@@ -477,8 +477,8 @@ export function Settings() {
                 subTitle={Locale.Settings.AccessCode.SubTitle}
               >
                 <PasswordInput
-                  // value={accessStore.accessCode}
-                  value="lzx20220627"
+                  value={accessStore.accessCode}
+                  // value="lzx20220627"
                   type="text"
                   placeholder={Locale.Settings.AccessCode.Placeholder}
                   onChange={(e) => {
@@ -497,7 +497,6 @@ export function Settings() {
               >
                 <PasswordInput
                   value={accessStore.token}
-                  // value="lzx20220627"
                   type="text"
                   placeholder={Locale.Settings.Token.Placeholder}
                   onChange={(e) => {

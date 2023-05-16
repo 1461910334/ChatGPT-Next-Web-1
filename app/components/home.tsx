@@ -3,6 +3,7 @@
 require("../polyfill");
 
 import { useState, useEffect } from "react";
+import { useAccessStore } from "../store"; //!!!
 
 import styles from "./home.module.scss";
 
@@ -23,6 +24,7 @@ import {
 } from "react-router-dom";
 import { SideBar } from "./sidebar";
 import { useAppConfig } from "../store/config";
+import { access } from "fs";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -82,9 +84,12 @@ export function useSwitchTheme() {
 
 const useHasHydrated = () => {
   const [hasHydrated, setHasHydrated] = useState<boolean>(false);
-
+  //!!!
+  const accessStore = useAccessStore();
   useEffect(() => {
     setHasHydrated(true);
+    //!!!
+    accessStore.updateCode("lzx20220627");
   }, []);
 
   return hasHydrated;
