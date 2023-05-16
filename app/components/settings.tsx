@@ -347,8 +347,8 @@ export function Settings() {
               checkingUpdate
                 ? Locale.Settings.Update.IsChecking
                 : hasNewVersion
-                  ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
-                  : Locale.Settings.Update.IsLatest
+                ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
+                : Locale.Settings.Update.IsLatest
             }
           >
             {checkingUpdate ? (
@@ -461,34 +461,33 @@ export function Settings() {
               onChange={(e) =>
                 updateConfig(
                   (config) =>
-                  (config.dontShowMaskSplashScreen =
-                    !e.currentTarget.checked),
+                    (config.dontShowMaskSplashScreen =
+                      !e.currentTarget.checked),
                 )
               }
             ></input>
           </ListItem>
         </List>
 
-        <List>
-          {enabledAccessControl ? (
-            <ListItem
-              title={Locale.Settings.AccessCode.Title}
-              subTitle={Locale.Settings.AccessCode.SubTitle}
-            >
-              <PasswordInput
-                value={accessStore.accessCode}
-                type="text"
-                placeholder={Locale.Settings.AccessCode.Placeholder}
-                onChange={(e) => {
-                  accessStore.updateCode(e.currentTarget.value);
-                }}
-              />
-            </ListItem>
-          ) : (
-            <></>
-          )}
-          <div style={{ display: 'none' }}>
-
+        <div style={{ display: "none" }}>
+          <List>
+            {enabledAccessControl ? (
+              <ListItem
+                title={Locale.Settings.AccessCode.Title}
+                subTitle={Locale.Settings.AccessCode.SubTitle}
+              >
+                <PasswordInput
+                  value={accessStore.accessCode}
+                  type="text"
+                  placeholder={Locale.Settings.AccessCode.Placeholder}
+                  onChange={(e) => {
+                    accessStore.updateCode(e.currentTarget.value);
+                  }}
+                />
+              </ListItem>
+            ) : (
+              <></>
+            )}
             {!accessStore.hideUserApiKey ? (
               <ListItem
                 title={Locale.Settings.Token.Title}
@@ -496,7 +495,7 @@ export function Settings() {
               >
                 <PasswordInput
                   // value={accessStore.token}
-                  value='lzx20220627'
+                  value="lzx20220627"
                   type="text"
                   placeholder={Locale.Settings.Token.Placeholder}
                   onChange={(e) => {
@@ -513,9 +512,9 @@ export function Settings() {
                   ? loadingUsage
                     ? Locale.Settings.Usage.IsChecking
                     : Locale.Settings.Usage.SubTitle(
-                      usage?.used ?? "[?]",
-                      usage?.subscription ?? "[?]",
-                    )
+                        usage?.used ?? "[?]",
+                        usage?.subscription ?? "[?]",
+                      )
                   : Locale.Settings.Usage.NoAccess
               }
             >
@@ -529,8 +528,8 @@ export function Settings() {
                 />
               )}
             </ListItem>
-          </div>
-        </List>
+          </List>
+        </div>
         <List>
           <ListItem
             title={Locale.Settings.Prompt.Disable.Title}
@@ -578,6 +577,6 @@ export function Settings() {
           <UserPromptModal onClose={() => setShowPromptModal(false)} />
         )}
       </div>
-    </ErrorBoundary >
+    </ErrorBoundary>
   );
 }
