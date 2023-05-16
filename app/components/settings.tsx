@@ -478,6 +478,7 @@ export function Settings() {
               >
                 <PasswordInput
                   value={accessStore.accessCode}
+                  //!!!
                   // value="lzx20220627"
                   type="text"
                   placeholder={Locale.Settings.AccessCode.Placeholder}

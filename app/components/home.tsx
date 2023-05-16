@@ -3,7 +3,7 @@
 require("../polyfill");
 
 import { useState, useEffect } from "react";
-import { useAccessStore } from "../store"; //!!!
+// import { useAccessStore } from "../store"; //!!!
 
 import styles from "./home.module.scss";
 
@@ -85,11 +85,11 @@ export function useSwitchTheme() {
 const useHasHydrated = () => {
   const [hasHydrated, setHasHydrated] = useState<boolean>(false);
   //!!!
-  const accessStore = useAccessStore();
+  // const accessStore = useAccessStore();
   useEffect(() => {
     setHasHydrated(true);
     //!!!
-    accessStore.updateCode("lzx20220627");
+    // accessStore.updateCode("lzx20220627");
   }, []);
 
   return hasHydrated;
