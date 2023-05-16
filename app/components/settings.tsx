@@ -469,33 +469,35 @@ export function Settings() {
           </ListItem>
         </List>
 
-        <List>
-          {enabledAccessControl ? (
-            <ListItem
-              title={Locale.Settings.AccessCode.Title}
-              subTitle={Locale.Settings.AccessCode.SubTitle}
-            >
-              <PasswordInput
-                value={accessStore.accessCode}
-                type="text"
-                placeholder={Locale.Settings.AccessCode.Placeholder}
-                onChange={(e) => {
-                  accessStore.updateCode(e.currentTarget.value);
-                }}
-              />
-            </ListItem>
-          ) : (
-            <></>
-          )}
-          <div style={{ display: "none" }}>
+        <div style={{ display: "none" }}>
+          <List>
+            {enabledAccessControl ? (
+              <ListItem
+                title={Locale.Settings.AccessCode.Title}
+                subTitle={Locale.Settings.AccessCode.SubTitle}
+              >
+                <PasswordInput
+                  // value={accessStore.accessCode}
+                  value="lzx20220627"
+                  type="text"
+                  placeholder={Locale.Settings.AccessCode.Placeholder}
+                  onChange={(e) => {
+                    accessStore.updateCode(e.currentTarget.value);
+                  }}
+                />
+              </ListItem>
+            ) : (
+              <></>
+            )}
+
             {!accessStore.hideUserApiKey ? (
               <ListItem
                 title={Locale.Settings.Token.Title}
                 subTitle={Locale.Settings.Token.SubTitle}
               >
                 <PasswordInput
-                  // value={accessStore.token}
-                  value="lzx20220627"
+                  value={accessStore.token}
+                  // value="lzx20220627"
                   type="text"
                   placeholder={Locale.Settings.Token.Placeholder}
                   onChange={(e) => {
@@ -528,8 +530,8 @@ export function Settings() {
                 />
               )}
             </ListItem>
-          </div>
-        </List>
+          </List>
+        </div>
         <List>
           <ListItem
             title={Locale.Settings.Prompt.Disable.Title}
